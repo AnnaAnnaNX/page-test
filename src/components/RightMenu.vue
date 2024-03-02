@@ -1,5 +1,5 @@
 <template>
-  <v-list density="compact" bg-color="secondary" style="background: #212121;">
+  <v-list density="compact" bg-color="white" style="background: #212121; padding-left: 30px; padding-right: 30px;">
     <v-list-item
       v-for="(item, i) in items"
       :key="i"
@@ -15,24 +15,32 @@
 <script setup>
   const items = [
     {
-      name: 'Обо мне',
+      name: 'Основная информация',
       id: 1,
     },
     {
-      name: 'Документы',
+      name: 'Квалификационные документы',
       id: 2,
     },
     {
-      name: 'Объекты',
+      name: 'Образование',
       id: 3,
     },
     {
-      name: 'Календарь работ',
+      name: 'Контакты',
       id: 4,
     },
     {
-      name: 'Отклики',
+      name: 'Данные для рассчетов',
       id: 5,
+    },
+    {
+      name: 'Виды работ',
+      id: 6,
+    },
+    {
+      name: 'Дополнительные данные',
+      id: 7,
     }
   ]
 </script>
