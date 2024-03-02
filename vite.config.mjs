@@ -10,6 +10,10 @@ import { fileURLToPath, URL } from 'node:url'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  build: {
+    outDir: './docs'
+  },
+  base: "https://annaannanx.github.io/page-test/",
   plugins: [
     Vue({
       template: { transformAssetUrls }
