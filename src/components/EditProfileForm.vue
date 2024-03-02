@@ -15,10 +15,7 @@
         :style="{background: image ? `url(${image})` : '#c4c4c4'}"
         class="avatar"
       >
-        <div
-          v-if="!image"
-          style="font-size: 30px;"
-        >АБ</div>
+        <div v-if="!image">{{avatarText}}</div>
       </div>
       <p>Перетащите или выберети фото на компьютере</p>
       <v-file-input
@@ -39,15 +36,33 @@
         </template>
       </v-file-input>
     </div>
+
+    <div>
+      <v-row>
+        <v-col cols="6">
+          <label>Фамилия</label>
+          <v-text-field v-model="form.name"></v-text-field>
+        </v-col>
+        <v-col cols="6">
+          <label>Имя</label>
+          <v-text-field v-model="form.firstName"></v-text-field>
+        </v-col>
+      </v-row>
+    </div>
+{{form}}
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import {computed, ref} from 'vue'
 
 const chosenFile = ref(null)
 const image = ref(null)
 const fileName = ref('')
+const form = ref({})
+const avatarText = computed(() => {
+  return `${form.value?.name?.[0] || ''}${form.value?.firstName?.[0] || ''}`
+})
 
 const onFileChange = function(file) {
     const reader = new FileReader()
@@ -83,5 +98,6 @@ const clear = () => {
   align-items: center;
   color: grey;
   font-size: 70px;
+  text-transform: uppercase;
 }
 </style>
